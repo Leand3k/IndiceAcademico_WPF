@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico"
         mc:Ignorable="d"
-        Title="Estudiantes INTEC" Height="450" Width="800" ResizeMode="CanResize" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+        Title="Estudiantes INTEC" Height="450" Width="800" ResizeMode="CanResize" Closing="Window_Closing" WindowStartupLocation="CenterScreen" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
     <Grid>
         <Rectangle Fill="#FFFF2D2D" HorizontalAlignment="Left" Height="419" Stroke="Black" VerticalAlignment="Top" Width="156"/>
         <Label x:Name="NombreEstudiante" HorizontalAlignment="Left" VerticalAlignment="Bottom" FontSize="12" Foreground="#FFA8A8A8" FontStyle="Italic" Margin="10"/>
