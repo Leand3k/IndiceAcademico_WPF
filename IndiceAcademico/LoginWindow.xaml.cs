@@ -20,6 +20,12 @@ namespace IndiceAcademico
 	/// </summary>
 	public partial class LoginWindow : Window
 	{
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+        {
+			WindowState = WindowState.Minimized;
+        }
+
 		public static string filepathUser = "BaseUsuario.data";
 
 		public LoginWindow()

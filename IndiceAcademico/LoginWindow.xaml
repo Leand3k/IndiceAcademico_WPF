@@ -5,14 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico"
         mc:Ignorable="d"
-        Title="Login" Height="400" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="400" Width="350" ResizeMode="CanResize"  WindowStartupLocation="CenterScreen">
     <Grid Background="Black">
-        <Border CornerRadius="40" BorderThickness="10" Background="#FFFF2F2F" />
-        <Label Content="LOGIN" HorizontalAlignment="Center" Margin="40" VerticalAlignment="Top" FontSize="50" Foreground="White"/>
-        <TextBox x:Name="inputUsuario" FontSize="16" HorizontalAlignment="Center" Margin="52,152,40,187" Width="250" Height="30" Background="White"/>
-        <Label FontSize="16" Content="Usuario" Height="30" Margin="51,122,0,217" HorizontalAlignment="Left" Width="70" Foreground="White" RenderTransformOrigin="0.814,0.633"/>
-        <PasswordBox x:Name="inputContrasena" FontSize="16" HorizontalAlignment="Center" Width="250" Height="30" Background="White" Margin="51,217,41,122"/>
-        <Label FontSize="16" Content="Contraseña" Height="30" Margin="51,187,0,152" HorizontalAlignment="Left" Width="91" Foreground="White" RenderTransformOrigin="0.514,1.4"/>
-        <Button x:Name="Login"  Content="Login" Height="30" Width="80" VerticalAlignment="Bottom" Margin="50" Background="#FFFF7474" BorderThickness="3" BorderBrush="White" Foreground="White" Click="Login_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Border CornerRadius="40" BorderThickness="10" Background="#FFFF2F2F" Grid.ColumnSpan="2" />
+        <Label Content="LOGIN" HorizontalAlignment="Center" Margin="94,40,87.909,0" VerticalAlignment="Top" FontSize="50" Foreground="White"/>
+        <TextBox x:Name="inputUsuario" FontSize="16" HorizontalAlignment="Center" Margin="53,153,34.909,188" Width="250" Height="30" Background="White"/>
+        <Label FontSize="16" Content="Usuario" Height="30" Margin="51,123,0,218" HorizontalAlignment="Left" Width="70" Foreground="White" RenderTransformOrigin="0.814,0.633"/>
+        <PasswordBox x:Name="inputContrasena" FontSize="16" HorizontalAlignment="Center" Width="250" Height="30" Background="White" Margin="52,218,35.909,123"/>
+        <Label FontSize="16" Content="Contraseña" Height="30" Margin="51,188,0,153" HorizontalAlignment="Left" Width="91" Foreground="White" RenderTransformOrigin="0.514,1.4"/>
+        <Button x:Name="Login"  Content="Login" Height="30" Width="80" VerticalAlignment="Bottom" Margin="132,0,125.909,50" Background="#FFFF7474" BorderThickness="3" BorderBrush="White" Foreground="White" Click="Login_Click"/>
     </Grid>
 </Window>
