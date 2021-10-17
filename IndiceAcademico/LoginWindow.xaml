@@ -12,7 +12,16 @@
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
         <Border CornerRadius="40" BorderThickness="10" Background="#FFFF2F2F" Grid.ColumnSpan="2" />
-        <Label Content="LOGIN" HorizontalAlignment="Center" Margin="94,40,87.909,0" VerticalAlignment="Top" FontSize="50" Foreground="White"/>
+        <Label Content="LOGIN" HorizontalAlignment="Center" Margin="94,40,87.909,0" VerticalAlignment="Top" FontSize="50" Foreground="White" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.244"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <TextBox x:Name="inputUsuario" FontSize="16" HorizontalAlignment="Center" Margin="53,153,34.909,188" Width="250" Height="30" Background="White"/>
         <Label FontSize="16" Content="Usuario" Height="30" Margin="51,123,0,218" HorizontalAlignment="Left" Width="70" Foreground="White" RenderTransformOrigin="0.814,0.633"/>
         <PasswordBox x:Name="inputContrasena" FontSize="16" HorizontalAlignment="Center" Width="250" Height="30" Background="White" Margin="52,218,35.909,123"/>
