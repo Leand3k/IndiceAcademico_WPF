@@ -31,26 +31,32 @@ namespace IndiceAcademico.mainwindows
 		{
 			InitializeComponent();
 
-            //Recuperar asignaturas de cada profesor
-            foreach (var profesor in profesoresLST)
-            {
-                archivo.FilePath = profesor.Nombre + "-Asignaturas.csv";
-                if (File.Exists(profesor.Nombre + "-Asignaturas.csv"))
-                {
-                    archivo.RecuperarLista(profesor.Asignaturas);
-                }
+			//Recuperar asignaturas de cada profesor
+			foreach (var profesor in profesoresLST)
+			{
+				archivo.FilePath = profesor.ID + profesor.Nombre + "-Asignaturas.csv";
+				if (File.Exists(archivo.FilePath))
+				{
+					archivo.RecuperarLista(profesor.Asignaturas);
+				}
 
-                foreach (var asignatura in profesor.Asignaturas)
-                {
-                    Asignatura tempAsignatura = AsignaturasWindow.asignaturasLST.Find(asi => asi.Clave == asignatura.Clave);
-                    if (tempAsignatura != null)
-                    {
-                        tempAsignatura.IsInList = true;
-                    }
-                }
-            }
+				archivo.FilePath = profesor.ID + profesor.Nombre + "-Estudiantes.csv";
+				if (File.Exists(archivo.FilePath))
+				{
+					archivo.RecuperarLista(profesor.Estudiantes);
+				}
 
-            ProfesoresDataGrid.ItemsSource = profesoresLST;
+				foreach (var asignatura in profesor.Asignaturas)
+				{
+					Asignatura tempAsignatura = AsignaturasWindow.asignaturasLST.Find(asi => asi.Clave == asignatura.Clave);
+					if (tempAsignatura != null)
+					{
+						tempAsignatura.IsInList = true;
+					}
+				}
+			}
+
+			ProfesoresDataGrid.ItemsSource = profesoresLST;
 		}
 
 		private void ProfesoresDataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -64,13 +70,15 @@ namespace IndiceAcademico.mainwindows
 		private void ProfesoresDataGrid_Selected(object sender, RoutedEventArgs e)
 		{
 			MessageBoxResult result = MessageBox.Show("Desea eliminar la entrada?", "Eliminar", MessageBoxButton.YesNo);
+			var profesor = (Profesor)ProfesoresDataGrid.SelectedItem;
 
 			if (result == MessageBoxResult.Yes)
 			{
-				profesoresLST.Remove((Profesor)ProfesoresDataGrid.SelectedItem);
+				profesoresLST.Remove(profesor);
 			}
 
 			archivo.OverWriteFile(profesoresLST);
+			File.WriteAllLines(LoginWindow.filepathUser, File.ReadLines(LoginWindow.filepathUser).Where(l => l != profesor.ToUser()).ToList());
 
 			ProfesoresDataGrid.ItemsSource = null;
 			ProfesoresDataGrid.ItemsSource = profesoresLST;
@@ -94,10 +102,10 @@ namespace IndiceAcademico.mainwindows
 			editarProfesor.ShowDialog();
 		}
 
-        private void UserControl_MouseEnter(object sender, MouseEventArgs e)
-        {
-            ProfesoresDataGrid.ItemsSource = null;
-            ProfesoresDataGrid.ItemsSource = profesoresLST;
-        }
-    }
+		private void UserControl_MouseEnter(object sender, MouseEventArgs e)
+		{
+			ProfesoresDataGrid.ItemsSource = null;
+			ProfesoresDataGrid.ItemsSource = profesoresLST;
+		}
+	}
 }
