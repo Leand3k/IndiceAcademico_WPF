@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IndiceAcademico"
         mc:Ignorable="d"
-        Title="Login" Height="400" Width="350" ResizeMode="CanResize"  WindowStartupLocation="CenterScreen">
+        Title="Login" Height="450" Width="400" ResizeMode="CanResize"  WindowStartupLocation="CenterScreen">
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="169*"/>
